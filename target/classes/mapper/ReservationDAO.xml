@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.ReservationDAO">
+    <insert id="reserveBook" parameterType="Reservation" useGeneratedKeys="true">
+        insert into bookList(
+            bookID,
+            userID
+        )values(
+            #{bookID},
+            #{userID}
+        )
+    </insert>
+
+    <select id="reservationList" resultType="Reservation">
+        select * from reservationList where userId=#{userId}
+    </select>
+
+    <delete id="cancelReservation" parameterType="Integer">
+        delete from reservationList where reservationID=#{reservationID}
+    </delete>
+</mapper>
