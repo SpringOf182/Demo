@@ -1,43 +1,28 @@
 package com.demo.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+@Data
+@AllArgsConstructor
 public class Book {
-    private long bookID;
+    private Integer bookID;
+
+    //@NotNull(message = "书名不能为空")
     private String bookName;
+
+    //@NotNull(message = "类别代码不能为空")
     private Integer category;
+
+    //@NotNull(message = "数量不能为空")
     private Integer remainNum;
 
+
     public Book() {
-    }
 
-    public long getBookID() {
-        return bookID;
-    }
-
-    public void setBookID(long bookID) {
-        this.bookID = bookID;
-    }
-
-    public String getBookName() {
-        return bookName;
-    }
-
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
-    }
-
-    public Integer getCategory() {
-        return category;
-    }
-
-    public void setCategory(Integer category) {
-        this.category = category;
-    }
-
-    public Integer getRemainNum() {
-        return remainNum;
-    }
-
-    public void setRemainNum(Integer remainNum) {
-        this.remainNum = remainNum;
     }
 }

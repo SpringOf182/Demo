@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ViewUI example</title>
+        <link rel="stylesheet" type="text/css" href="http://unpkg.com/view-design/dist/styles/iview.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+        <script type="text/javascript" src="http://unpkg.com/view-design/dist/iview.min.js"></script>
+    </head>
+    <body>
+        <table border="1">
+            <ul>
+                <th>书籍ID</th>
+                <th>书名</th>
+                <th>类别代码</th>
+                <th>数量</th>
+            </ul>
+            <tr v-for="item in bookList" :key="item.bookID">
+                <td>{{ item.bookID }}</td>
+                <td>{{ item.bookName }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.remainNum }}</td>
+            </tr>
+        </table>
+        <div id="app">
+            <v-table
+                    :width="1000"
+                    :columns="columns"
+                    :table-data="bookList"
+                    :show-vertical-border="false"
+            ></v-table>
+        </div>
+
+    </body>
+    <script>
+        new Vue({
+            el: '#example-2',
+            data: {
+                bookList: [{
+                    bookID:"",
+                    bookName:"",
+                    category:"",
+                    remainNum:"",
+                }],
+            },
+            // 在 `methods` 对象中定义方法
+            methods: {
+                /*send: function () {
+                    var _this = this;
+                    // console.log(JSON.stringify(_this.user))
+                    axios({
+                        method: 'get',
+                        url: "http://localhost:8080/getBookList.action",
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        // responseType: 'json'
+                    }).then (
+                        function (response) {
+                            console.log(response.data);
+                            _this.message = response.data;
+                            _this.value = response.data;
+                        }
+                    ).catch (function (error) {
+                        console.log(error.data);
+                        _this.message = error.data;
+                    });
+                },*/
+                getBookList: function (event) {
+                    var _this = this;
+                    axios({
+                        method: 'get',
+                        url: "http://localhost:8080/getBookList.action",
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        // responseType: 'json'
+                    }).then (
+                        function (response) {
+                            console.log(response.data);
+                            _this.bookList = response;
+                        }
+                    ).catch (function (error) {
+                        console.log(error.data);
+                    });
+                }
+            },
+            mounted () {
+            }
+        })
+    </script>
+</html>

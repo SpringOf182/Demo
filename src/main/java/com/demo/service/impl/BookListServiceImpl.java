@@ -35,7 +35,7 @@ public class BookListServiceImpl implements BookListService {
     }
 
     @Override
-    public Boolean changeRemainNum(Integer newNumber) {
-        return bookDAO.changeRemainNum(newNumber);
+    public Boolean changeRemainNum(Integer bookID,Integer newNumber) {
+        return bookDAO.changeRemainNum(bookID,newNumber);
     }
 }

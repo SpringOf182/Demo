@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#" />
+    <title>book</title>
+</head>
+<body>
+<div>
+    <form th:action="@{/getBookList.action}" method="get">
+        <input type="submit" value="Show All">
+    </form>
+    <!--添加书目，添加完后更新书籍列表并重新返回视图（上面的数据更改）-->
+    <form th:action="@{/addBook.action}" method="post" th:object="${book}" id="book">
+        <label for="bookName">输入书名：</label>
+        <input type="text" id="bookName" name="bookName" th:field="*{bookName}"><br/>
+        <label for="category">输入类别代码：</label>
+        <input type="text" id="category" name="category" th:field="*{category}"><br/>
+        <label for="remainNum">输入数量：</label>
+        <input type="text" id="remainNum" name="remainNum" th:field="*{remainNum}"><br/>
+        <input type="submit" value="Add">
+    </form>
+    <!--删除书目，删除后更新书籍列表并重新返回视图（上面的数据更改）-->
+    <form th:action="@{/deleteBook.action}" method="get">
+        <label for="bookID">输入书籍ID：</label>
+        <input type="text" id="bookID" name="bookID" th:field="*{bookID}"><br/>
+        <input type="submit" value="Delete">
+    </form>
+</div>
+</body>
+</html>

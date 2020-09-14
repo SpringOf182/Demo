@@ -13,5 +13,5 @@ public interface BookListService {
 
     Boolean deleteBook(Integer bookId);
 
-    Boolean changeRemainNum(Integer newNumber);
+    Boolean changeRemainNum(Integer bookID,Integer newNumber);
 }

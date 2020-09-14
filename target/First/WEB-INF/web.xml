@@ -46,10 +46,11 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>springmvc</servlet-name>
-    <url-pattern>*.action</url-pattern>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
   <!-- 系统默认页面 -->
   <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
+    <welcome-file>thymeleafTest.html</welcome-file>
+    <!--welcome-file>Login.jsp</welcome-file-->
   </welcome-file-list>
 </web-app>

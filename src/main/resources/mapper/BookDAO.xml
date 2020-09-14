@@ -8,14 +8,14 @@
     </select>
 
     <select id="getBookListByCategory" parameterType="Integer" resultType="Book">
-        select * from bookList where categoty=#{category}
+        select * from bookList where category=#{category}
     </select>
 
     <insert id="addBook" useGeneratedKeys="true">
         insert into bookList(
             bookName,
             category,
-            reamainNum
+            remainNum
         )values(
             #{bookName},
             #{category},
@@ -29,11 +29,8 @@
 
     <update id="changeRemainNum">
         update bookList
-        <set>
-            <if test="newNumber!=null">
-                categoty=#{category,jdbcType=INTEGER}
-            </if>
-        </set>
+        set
+            remainNum=#{remainNum,jdbcType=INTEGER}
         where bookID=#{bookID}
     </update>
 </mapper>

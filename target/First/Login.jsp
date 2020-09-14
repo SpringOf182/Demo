@@ -28,8 +28,8 @@
             <input name="userName" type="text"/><br>
             密码:
             <input name="password" type="password"/><br>
-            <button name="sub" type="submit" value="登录" />
-            <button name="res" type="reset" value="重置" />
+            <input name="sub" type="submit" value="SignUp" />
+            <input name="res" type="reset" value="Reset" />
         </form>
     </body>
 </html>

@@ -50,6 +50,7 @@
   </servlet-mapping>
   <!-- 系统默认页面 -->
   <welcome-file-list>
-    <welcome-file>Login.jsp</welcome-file>
+    <welcome-file>thymeleafTest.html</welcome-file>
+    <!--welcome-file>Login.jsp</welcome-file-->
   </welcome-file-list>
 </web-app>
