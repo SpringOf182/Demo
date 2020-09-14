@@ -1,0 +1,43 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="show-list">
+		<view>ID 书名 类别代码 数量</view>
+		<block wx:for="{{bookList}}" wx:key="key">
+			<view>{{item.bookID}} {{item.bookName}}  {{item.category}}  {{item.remainNum}}</view>
+		</block>
+  </view>
+  <!--view>{{test.test}}</view-->
+   <view>
+		<view class="line-container">
+			<view>书名：</view>
+			<input type='digit' placeholder="请输入书名" bindblur='nameBlur' bindinput='nameBlur' cursor-spacing='20'></input>
+		</view>
+		<view class="line-container">
+			<view>类别代码：</view>
+			<input type='digit' placeholder="请输入类别代码" bindblur='categoryBlur' bindinput='categoryBlur' cursor-spacing='20'></input>
+		</view>
+		<view class="line-container">
+			<view>数量：</view>
+			<input type='digit' placeholder="请输入书目数量" bindblur='numBlur' bindinput='numBlur' cursor-spacing='20'></input>
+		</view>
+		<button catchtap="addBook" class="add-button">添加</button>
+  </view>
+   <view>
+		<view class="line-container">
+			<view>书籍ID：</view>
+			<input type='digit' placeholder="请输入要删除的书籍ID" bindblur='idBlur' bindinput='idBlur' cursor-spacing='20'></input>
+		</view>
+		<button catchtap="deleteBook" class="delete-button">删除</button>
+  </view>
+  <view>
+		<view class="line-container">
+			<view>书籍ID：</view>
+			<input type='digit' placeholder="请输入书籍ID" bindblur='bookIdBlur' bindinput='bookIdBlur' cursor-spacing='20'></input>
+		</view>
+		<view class="line-container">
+			<view>更新数量：</view>
+			<input type='digit' placeholder="请输入更新后的数量" bindblur='newNumBlur' bindinput='newNumBlur' cursor-spacing='20'></input>
+		</view>
+		<button catchtap="updateNum" class="add-button">添加</button>
+  </view>
+</view>
